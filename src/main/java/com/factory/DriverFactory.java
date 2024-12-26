@@ -1,53 +1,46 @@
 package com.factory;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
+import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
 
-	public WebDriver driver;
-	public static Properties prop;
 
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+	public static WebDriver driver;
+	Properties prop;
 
 	/**
-	 * This method is used to initialize the thradlocal driver on the basis of given
+	 * This method is used to initialize the threadlocal driver on the basis of given
 	 * browser
 	 * 
 	 * @param browser
 	 * @return this will return tldriver.
 	 */
-	public WebDriver init_driver(String browser) {
-		//ChromeOptions options = new ChromeOptions();
-		//options.addArguments("--headless");
-
+	public static WebDriver init_driver(String browser) {
 		System.out.println("browser value is: " + browser);
-
-		if (browser.equals("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			tlDriver.set(new ChromeDriver());
-		} else if (browser.equals("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
-			tlDriver.set(new FirefoxDriver());
-		} else if (browser.equals("safari")) {
-			tlDriver.set(new SafariDriver());
-		} else {
-			System.out.println("Please pass the correct browser value: " + browser);
+		if(browser.equals("chrome")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver");
+			//System.setProperty("webdriver.chrome.verboseLogging", "true");
 		}
-
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-debugging-port=9222"); // Use an open port
+		options.addArguments("--disable-web-security");      // Disable web security for testing
+		options.addArguments("--allow-running-insecure-content"); 
+		options.addArguments("--remote-allow-origins=*");
+		options.addArguments("--user-data-dir=\"/cucumberjavaarchitecture\"");
+		tlDriver.set(new ChromeDriver(options));
 		getDriver().manage().deleteAllCookies();
 		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(180));
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		return getDriver();
+
 
 	}
 
@@ -57,6 +50,10 @@ public class DriverFactory {
 	 * @return
 	 */
 	public static synchronized WebDriver getDriver() {
+		if(tlDriver == null) {
+			System.out.println("driver is null");
+			return tlDriver.get();
+		}
 		return tlDriver.get();
 	}
 	

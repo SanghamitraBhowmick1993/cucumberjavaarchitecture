@@ -1,11 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="22620" started-at="2022-09-09T06:12:48Z" finished-at="2022-09-09T06:13:11Z">
+  <suite started-at="2024-12-26T16:30:11Z" name="Surefire suite" finished-at="2024-12-26T16:30:27Z" duration-ms="16093">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:testrunners.ParallelRun@139982de]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test name="Surefire test" duration-ms="22620" started-at="2022-09-09T06:12:48Z" finished-at="2022-09-09T06:13:11Z">
+    <test started-at="2024-12-26T16:30:11Z" name="Surefire test" finished-at="2024-12-26T16:30:27Z" duration-ms="16093">
+      <class name="testrunners.ParallelRun">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:testrunners.ParallelRun@139982de]" started-at="2024-12-26T16:30:11Z" name="setUpClass" finished-at="2024-12-26T16:30:11Z" duration-ms="117" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:testrunners.ParallelRun@139982de]" started-at="2024-12-26T16:30:11Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-26T16:30:20Z" duration-ms="9144" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login with correct credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login page feature]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:testrunners.ParallelRun@139982de]" started-at="2024-12-26T16:30:20Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-12-26T16:30:27Z" duration-ms="6813" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login with incorrect credentials"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login page feature]"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at parallel.LoginPageSteps.validateURL(LoginPageSteps.java:38)
+at ✽.validate the url contains "xyz"(file:///Users/sanghamitrabhowmick/Documents/cucumberjavaarchitecture/src/test/resources/parallel/LoginPage.feature:15)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testrunners.ParallelRun@139982de]" started-at="2024-12-26T16:30:27Z" name="tearDownClass" finished-at="2024-12-26T16:30:27Z" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- testrunners.ParallelRun -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->
 </testng-results>

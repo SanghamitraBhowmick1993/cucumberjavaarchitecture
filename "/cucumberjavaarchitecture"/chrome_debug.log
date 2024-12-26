@@ -1,0 +1,4 @@
+[58609:259:1226/220021.133516:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
+[58609:259:1226/220021.373228:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[58609:259:1226/220022.207495:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o", source: https://www.saucedemo.com/ (0)
+[58609:259:1226/220022.232592:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o", source: https://www.saucedemo.com/ (0)

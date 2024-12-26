@@ -1,7 +1,3 @@
-C:\Users\sangb\Downloads\CucumberFramework-main\CucumberFramework-main\CucumberPOMDesignProjectPattern\src\test\java\testrunners\MyTestRunner.java
-C:\Users\sangb\Downloads\CucumberFramework-main\CucumberFramework-main\CucumberPOMDesignProjectPattern\src\test\java\AppHooks\Util.java
-C:\Users\sangb\Downloads\CucumberFramework-main\CucumberFramework-main\CucumberPOMDesignProjectPattern\src\test\java\AppHooks\ExtentReport.java
-C:\Users\sangb\Downloads\CucumberFramework-main\CucumberFramework-main\CucumberPOMDesignProjectPattern\src\test\java\AppHooks\ExtentManager.java
-C:\Users\sangb\Downloads\CucumberFramework-main\CucumberFramework-main\CucumberPOMDesignProjectPattern\src\test\java\stepDefinations\AccountsPageSteps.java
-C:\Users\sangb\Downloads\CucumberFramework-main\CucumberFramework-main\CucumberPOMDesignProjectPattern\src\test\java\stepDefinations\LoginPageSteps.java
-C:\Users\sangb\Downloads\CucumberFramework-main\CucumberFramework-main\CucumberPOMDesignProjectPattern\src\test\java\AppHooks\AppHooks.java
+/Users/sanghamitrabhowmick/Documents/cucumberjavaarchitecture/src/test/java/parallel/AppHooks.java
+/Users/sanghamitrabhowmick/Documents/cucumberjavaarchitecture/src/test/java/testrunners/ParallelRun.java
+/Users/sanghamitrabhowmick/Documents/cucumberjavaarchitecture/src/test/java/parallel/LoginPageSteps.java

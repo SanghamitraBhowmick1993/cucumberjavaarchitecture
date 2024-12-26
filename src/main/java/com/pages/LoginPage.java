@@ -3,13 +3,17 @@ package com.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.factory.DriverFactory;
+import com.util.ConfigReader;
+
 public class LoginPage {
 	private WebDriver driver;
+	static ConfigReader reader = new ConfigReader();
 	
 	// 1. By locators or OR
-	private By emailID = By.id("email");
-	private By password = By.id("passwd");
-	private By signInButton = By.id("SubmitLogin");
+	private By usernm = By.id("user-name");
+	private By password = By.id("password");
+	private By signInButton = By.id("login-button");
 	private By forgotPwdLink = By.linkText("Forgot your password?111");
 
 	
@@ -19,30 +23,39 @@ public class LoginPage {
 	}
 	
 	//3. Page Actions
+	public void login_testapp() {
+		System.out.println("test url is...." + reader.getEnvironmentProperty());
+		try {
+			String url = reader.getEnvironmentProperty();
+			driver.get(url);
+			driver.navigate().refresh();
+		} catch (Exception e) {
+			System.out.println("err loading url " + e.getMessage());
+			e.printStackTrace();
+		}
+		//reader.getURL();
+		
+	}
 	public String getLoginPageTitle(){
 		return driver.getTitle();
 	}
+		
 	
-	public boolean isForgotpwdLinkExts(){
-		return driver.findElement(forgotPwdLink).isDisplayed();
-	}
-	
-	public void enterUserName(String userName){
-		driver.findElement(emailID).sendKeys(userName);
+	public void enterUserName(String userName) throws InterruptedException{
+		driver.findElement(usernm).sendKeys(reader.getUsername());
+		Thread.sleep(2000);
+
 	}
 	public void enterPassword(String pwd){
-		driver.findElement(password).sendKeys(pwd);
+		driver.findElement(password).sendKeys(reader.getPassword());
 	}
-	public void clickOnLogin(){
+	public void clickOnLogin() throws InterruptedException{
 		driver.findElement(signInButton).click();
+		Thread.sleep(2000);
 	}
-	public AccountsPage doLogin(String unm, String pwd){
-		System.out.println("Login with : " + unm + " and " + pwd);
-		driver.findElement(emailID).sendKeys(unm);		
-		driver.findElement(password).sendKeys(pwd);
-		driver.findElement(signInButton).click();
-		return new AccountsPage(driver);
-
-
+	
+	public String getURL(){
+		return driver.getCurrentUrl();
 	}
+	
 }
