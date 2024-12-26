@@ -35,6 +35,7 @@ public class DriverFactory {
 		options.addArguments("--disable-web-security");      // Disable web security for testing
 		options.addArguments("--allow-running-insecure-content"); 
 		options.addArguments("--remote-allow-origins=*");
+		options.addArguments("--headless");
 		options.addArguments("--user-data-dir=\"/cucumberjavaarchitecture\"");
 		tlDriver.set(new ChromeDriver(options));
 		getDriver().manage().deleteAllCookies();
