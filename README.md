@@ -1,0 +1,1 @@
+[![Java CI with Maven](https://github.com/SanghamitraBhowmick1993/cucumberjavaarchitecture/actions/workflows/e2eflow.yml/badge.svg)](https://github.com/SanghamitraBhowmick1993/cucumberjavaarchitecture/actions/workflows/e2eflow.yml)
