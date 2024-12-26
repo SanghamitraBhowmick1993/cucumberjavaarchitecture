@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class DriverFactory {
 
 
@@ -25,8 +27,8 @@ public class DriverFactory {
 	public static WebDriver init_driver(String browser) {
 		System.out.println("browser value is: " + browser);
 		if(browser.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver");
-			//System.setProperty("webdriver.chrome.verboseLogging", "true");
+			//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver");
+			 WebDriverManager.chromedriver().setup();
 		}
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-debugging-port=9222"); // Use an open port
